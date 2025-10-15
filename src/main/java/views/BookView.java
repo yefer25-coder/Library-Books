@@ -5,7 +5,7 @@ import controllers.BookController;
 import javax.swing.*;
 
 /**
- * Vista para la gestión de libros (usa JOptionPane)
+ * View for books (use JOptionPane)
  */
 public class BookView {
 

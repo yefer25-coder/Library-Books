@@ -14,7 +14,6 @@ public class App {
 
     public static void main(String[] args) {
 
-        // Configurar apariencia moderna (opcional)
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception ignored) {}
@@ -35,14 +34,14 @@ public class App {
     private final ExportView exportView;
 
     public App() {
-        // Controladores
+
         this.authController = new AuthController();
         this.bookController = new BookController();
         this.memberController = new MemberController();
         this.loanController = new LoanController();
         this.exportController = new ExportController();
 
-        // Vistas
+
         this.authView = new AuthView(authController);
         this.bookView = new BookView(bookController);
         this.memberView = new MemberView(memberController);
@@ -55,7 +54,7 @@ public class App {
      */
     public void start() {
         JOptionPane.showMessageDialog(null,
-                "📚 Bienvenido al Sistema de Gestión de Biblioteca",
+                " Bienvenido al Sistema de Gestión de Biblioteca",
                 "Biblioteca - Inicio", JOptionPane.INFORMATION_MESSAGE);
 
         // Login
@@ -78,9 +77,9 @@ public class App {
         do {
             option = JOptionPane.showInputDialog(null,
                     String.format("""
-                            👋 Bienvenido, %s (%s)
+                              Bienvenido, %s (%s)
                             
-                            🏠 MENÚ PRINCIPAL
+                              MENÚ PRINCIPAL
                             
                             1. Gestión de Libros
                             2. Gestión de Socios
@@ -102,14 +101,14 @@ public class App {
                 case "4" -> exportView.showMenu();
                 case "9" -> {
                     authView.logout();
-                    start(); // vuelve al login
+                    start();
                     return;
                 }
                 case "0" -> {
-                    JOptionPane.showMessageDialog(null, "👋 Gracias por usar el sistema. ¡Hasta pronto!");
+                    JOptionPane.showMessageDialog(null, " Gracias por usar el sistema. ¡Hasta pronto!");
                     System.exit(0);
                 }
-                default -> JOptionPane.showMessageDialog(null, "⚠️ Opción inválida. Intente de nuevo.");
+                default -> JOptionPane.showMessageDialog(null, " Opción inválida. Intente de nuevo.");
             }
 
         } while (true);

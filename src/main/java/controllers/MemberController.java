@@ -268,18 +268,4 @@ public class MemberController {
             return false;
         }
     }
-
-    /**
-     * Get all members (for exports or other operations)
-     */
-    public List<Member> getAllMembers() throws DatabaseException {
-        return memberService.getAllMembers();
-    }
-
-    /**
-     * Get active members list
-     */
-    public List<Member> getActiveMembers() throws DatabaseException {
-        return memberService.getActiveMembers();
-    }
 }

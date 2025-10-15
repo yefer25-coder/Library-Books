@@ -5,7 +5,7 @@ import controllers.MemberController;
 import javax.swing.*;
 
 /**
- * Vista para la gestión de socios (usa JOptionPane)
+ * View for manage partner (use JOptionPane)
  */
 public class MemberView {
 

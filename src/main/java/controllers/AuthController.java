@@ -49,25 +49,4 @@ public class AuthController {
     public void logout() {
         userService.logout();
     }
-
-    /**
-     * Get current logged-in user
-     */
-    public User getCurrentUser() {
-        return userService.getCurrentUser();
-    }
-
-    /**
-     * Check if user is logged in
-     */
-    public boolean isLoggedIn() {
-        return userService.isLoggedIn();
-    }
-
-    /**
-     * Check if current user is admin
-     */
-    public boolean isCurrentUserAdmin() {
-        return userService.isCurrentUserAdmin();
-    }
 }

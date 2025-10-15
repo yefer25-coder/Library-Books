@@ -5,7 +5,7 @@ import controllers.ExportController;
 import javax.swing.*;
 
 /**
- * Vista para exportación de datos (usa JOptionPane)
+ * View for export data (use JOptionPane)
  */
 public class ExportView {
 

@@ -229,26 +229,6 @@ public class BookService {
         }
     }
 
-    /**
-     * Validate book has available stock (business rule)
-     */
-    public void validateBookHasStock(String isbn) throws InsufficientStockException, EntityNotFoundException, DatabaseException {
-        try {
-            Optional<Book> bookOpt = bookDAO.findByIsbn(isbn);
-
-            if (bookOpt.isEmpty()) {
-                throw new EntityNotFoundException("Book not found with ISBN: " + isbn);
-            }
-
-            Book book = bookOpt.get();
-            if (!book.hasAvailableCopies()) {
-                throw new InsufficientStockException("No available copies for book: " + book.getTitle());
-            }
-
-        } catch (SQLException e) {
-            throw new DatabaseException("Error validating book stock", e);
-        }
-    }
 
     /**
      * Validate book input data

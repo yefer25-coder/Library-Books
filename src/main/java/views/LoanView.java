@@ -5,7 +5,7 @@ import controllers.LoanController;
 import javax.swing.*;
 
 /**
- * Vista para gestionar préstamos (LoanView)
+ * View for manage loans (LoanView)
  */
 public class LoanView {
 
@@ -16,7 +16,7 @@ public class LoanView {
     }
 
     /**
-     * Muestra el menú principal de préstamos
+     * Show the menu main for loan.
      */
     public void showMenu() {
         String option;
@@ -53,9 +53,7 @@ public class LoanView {
         } while (!"0".equals(option));
     }
 
-    /**
-     * Registrar un nuevo préstamo
-     */
+
     private void createLoan() {
         String isbn = JOptionPane.showInputDialog("Ingrese el ISBN del libro:");
         if (isbn == null) return;
@@ -66,9 +64,7 @@ public class LoanView {
         loanController.createLoan(isbn.trim(), memberId.trim());
     }
 
-    /**
-     * Devolver un préstamo existente
-     */
+
     private void returnLoan() {
         String loanId = JOptionPane.showInputDialog("Ingrese el ID del préstamo a devolver:");
         if (loanId == null) return;
@@ -76,9 +72,7 @@ public class LoanView {
         loanController.returnLoan(loanId.trim());
     }
 
-    /**
-     * Ver préstamos por socio
-     */
+
     private void viewLoansByMember() {
         String memberId = JOptionPane.showInputDialog("Ingrese el ID del socio:");
         if (memberId == null) return;
@@ -86,9 +80,7 @@ public class LoanView {
         loanController.viewLoansByMember(memberId.trim());
     }
 
-    /**
-     * Ver detalles de un préstamo específico
-     */
+
     private void viewLoanDetails() {
         String loanId = JOptionPane.showInputDialog("Ingrese el ID del préstamo:");
         if (loanId == null) return;

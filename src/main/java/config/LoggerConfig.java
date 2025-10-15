@@ -44,20 +44,7 @@ public class LoggerConfig {
             System.err.println("✗ Error configuring logger: " + e.getMessage());
         }
     }
-
-    public static Logger getAppLogger() {
-        if (!initialized) {
-            initialize();
-        }
-        return APP_LOGGER;
-    }
-
-    public static Logger getHttpLogger() {
-        if (!initialized) {
-            initialize();
-        }
-        return HTTP_LOGGER;
-    }
+    
 
     /**
      * Log HTTP-style request (simulated)

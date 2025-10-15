@@ -17,8 +17,8 @@ public class AuthView {
     }
 
     /**
-     * Muestra el formulario de inicio de sesión.
-     * Si el login es exitoso, retorna el usuario autenticado.
+     * show formulate of login.
+     * .
      */
     public User showLogin() {
         User loggedUser = null;
@@ -28,8 +28,8 @@ public class AuthView {
             JPasswordField passwordField = new JPasswordField();
 
             Object[] message = {
-                    "👤 Usuario:", usernameField,
-                    "🔒 Contraseña:", passwordField
+                    "Usuario:", usernameField,
+                    "Contraseña:", passwordField
             };
 
             int option = JOptionPane.showConfirmDialog(

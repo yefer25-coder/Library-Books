@@ -64,31 +64,4 @@ public class DatabaseConnection {
         return conn;
     }
 
-    /**
-     * Close the shared connection
-     */
-    public void closeConnection() {
-        if (connection != null) {
-            try {
-                if (!connection.isClosed()) {
-                    connection.close();
-                    LOGGER.info("✓ Database connection closed");
-                }
-            } catch (SQLException e) {
-                LOGGER.log(Level.WARNING, "⚠ Error closing connection", e);
-            }
-        }
-    }
-
-    /**
-     * Test database connectivity
-     */
-    public boolean testConnection() {
-        try (Connection conn = getNewConnection()) {
-            return conn != null && !conn.isClosed();
-        } catch (SQLException e) {
-            LOGGER.log(Level.SEVERE, "✗ Database connection test failed", e);
-            return false;
-        }
-    }
 }

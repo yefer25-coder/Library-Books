@@ -189,26 +189,6 @@ public class MemberService {
         }
     }
 
-    /**
-     * Validate member is active (business rule)
-     */
-    public void validateMemberIsActive(Integer memberId) throws InactiveMemberException, EntityNotFoundException, DatabaseException {
-        try {
-            Optional<Member> memberOpt = memberDAO.findById(memberId);
-
-            if (memberOpt.isEmpty()) {
-                throw new EntityNotFoundException("Member not found with ID: " + memberId);
-            }
-
-            Member member = memberOpt.get();
-            if (!member.isActive()) {
-                throw new InactiveMemberException("Member is inactive: " + member.getName());
-            }
-
-        } catch (SQLException e) {
-            throw new DatabaseException("Error validating member", e);
-        }
-    }
 
     /**
      * Validate member input data

@@ -85,29 +85,15 @@ public class Member {
         return isActive;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
-    }
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     // Business methods
     public boolean isActive() {
         return isActive != null && isActive;
-    }
-
-    public void activate() {
-        this.isActive = true;
-    }
-
-    public void deactivate() {
-        this.isActive = false;
     }
 
     @Override

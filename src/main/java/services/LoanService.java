@@ -298,21 +298,6 @@ public class LoanService {
         }
     }
 
-    /**
-     * Get active loans by member
-     */
-    public List<Loan> getActiveLoansByMember(Integer memberId) throws DatabaseException {
-        try {
-            LoggerConfig.logHttpRequest("GET", "/api/loans?memberId=" + memberId + "&status=active", "system");
-            List<Loan> loans = loanDAO.findActiveLoansByMember(memberId);
-            LoggerConfig.logHttpResponse(200, "Active loans found: " + loans.size());
-            return loans;
-        } catch (SQLException e) {
-            LoggerConfig.logHttpResponse(500, "Database error");
-            LoggerConfig.logError("Error retrieving active loans by member", e);
-            throw new DatabaseException("Error retrieving active loans by member", e);
-        }
-    }
 
     /**
      * Find loan by ID

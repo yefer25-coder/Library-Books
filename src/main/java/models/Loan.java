@@ -69,41 +69,26 @@ public class Loan {
         return idMember;
     }
 
-    public void setIdMember(Integer idMember) {
-        this.idMember = idMember;
-    }
 
     public LocalDate getLoanDate() {
         return loanDate;
     }
 
-    public void setLoanDate(LocalDate loanDate) {
-        this.loanDate = loanDate;
-    }
 
     public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
-        this.dueDate = dueDate;
-    }
 
     public LocalDate getReturnDate() {
         return returnDate;
     }
 
-    public void setReturnDate(LocalDate returnDate) {
-        this.returnDate = returnDate;
-    }
 
     public Double getFineAmount() {
         return fineAmount;
     }
 
-    public void setFineAmount(Double fineAmount) {
-        this.fineAmount = fineAmount;
-    }
 
     public LoanStatus getStatus() {
         return status;
@@ -117,9 +102,6 @@ public class Loan {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
 
     // Business methods
     public boolean isOverdue() {
@@ -142,10 +124,6 @@ public class Loan {
         return status == LoanStatus.ACTIVE;
     }
 
-    public void markAsReturned() {
-        this.status = LoanStatus.RETURNED;
-        this.returnDate = LocalDate.now();
-    }
 
     @Override
     public boolean equals(Object o) {
