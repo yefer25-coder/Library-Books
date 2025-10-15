@@ -62,13 +62,15 @@ Log activity in app.log using java.util.logging.
 ---
 
 ```text
-📦 src
+ java
  ┣ 📂 controllers     → Presentation logic management
  ┣ 📂 services        → Business rules, transactions, validations
  ┣ 📂 dao             → JDBC persistence
+ |    ┣ 📂  impl      → Implementation of interfaces
  ┣ 📂 models          → Entity classes (Book, Loan, User, Member)
  ┣ 📂 views           → Interface with JOptionPane
  ┣ 📂 utils           → Helpers (logs, messages, validations, CSV)
+ ┣ 📂 exceptions      → Custom exceptions
  ┗ 📄 App.java        → Main entry point
 
 ```
@@ -82,32 +84,69 @@ Log activity in app.log using java.util.logging.
 | Java SE   | 17 or higher       |
 | Maven     | 3.8+                |
 | MySQL     | 8.0+                |
-| JUnit     | 5.x                 |
+
 
 ## Project Configuration
  Clone the repository
 
+
+```bach
 git clone https://github.com/usuario/libronova.git
-cd libronova
+
+```
 
 ### Create the MySQL database
-
+```sql
 CREATE DATABASE libronova;
 USE libronova;
-
+```
 Then run the sql/schema.sql script included in the project to create the tables (books, users, members, loans).
 
 ### Configure the config.properties file
 
 - Located in the project root (/src/main/resources/config.properties):
-
+```text
 db.url=jdbc:mysql://localhost:3306/libronova
 db.user=root
 db.password=****
 loanDays=7
 finePerDay=1500
 
-## Use Case Diagram
+```
+---
+### Use Case Diagram
+
+<img width="461" height="596" alt="Image" src="https://github.com/user-attachments/assets/e92e3a9c-07f6-463e-bb36-b8bc221897d1" />
+
+---
+### Relational diagram
+
+<img width="1121" height="498" alt="Image" src="https://github.com/user-attachments/assets/e20a26ed-97e2-4c88-a960-c3f997040858" />
+
+---
+
+## Criterios de Aceptación Cumplidos
+
+### Requisito
+
+- CRUD de libros con validación ISBN único	
+- Filtros por autor/categoría	
+- Login con roles (ADMIN/ASISTENTE)	
+- CRUD de usuarios y socios	
+- Préstamos y devoluciones con transacciones JDBC	
+- Exportaciones CSV funcionales	
+- Lectura de archivo .properties	
+- Excepciones personalizadas	
+- Logs “HTTP-like”	
+- README + Diagramas	
+---
+
+# Autor
+
+- **Nombre**: Yeferson Alejandro Garcia Marin
+- **Clan**: Berners-Lee
+- Proyecto desarrollado para la Prueba de Desempeño - Java SE + JDBC + MVC (LibroNova)
+
 
 
 
