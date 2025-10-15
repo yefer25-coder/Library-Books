@@ -1,94 +1,113 @@
-# LibroNova - Sistema de Gestión de Biblioteca (Java SE + JDBC + MVC)
-##  Descripción General
+# LibroNova - Library Management System (Java SE + JDBC + MVC)
+##  Overview
 
-LibroNova es una aplicación de escritorio desarrollada en Java SE (versión 17+) que permite gestionar el catálogo de libros, usuarios, socios y préstamos de una red de bibliotecas.
-El sistema utiliza JOptionPane para su interfaz gráfica, JDBC (MySQL) para la persistencia de datos y una arquitectura modular por capas (Controller, Service, DAO, Model, View).
+LibroNova is a desktop application developed in Java SE (version 17+) that allows you to manage the catalog of books, users, members, and loans for a network of libraries.
+The system uses JOptionPane for its graphical interface, JDBC (MySQL) for data persistence, and a modular layered architecture (Controller, Service, DAO, Model, View).
 
-Esta solución reemplaza el manejo manual de información en hojas de cálculo y formularios físicos, evitando errores de duplicidad, inconsistencia y pérdida de datos.
-Incluye validaciones, excepciones personalizadas, logs de operaciones y exportación de datos a archivos CSV.
+This solution replaces the manual handling of information in spreadsheets and physical forms, avoiding errors of duplication, inconsistency, and data loss.
+It includes validations, custom exceptions, operation logs, and data export to CSV files.
 
 ---
 
-## Características Principales
-### Gestión de Usuarios y Autenticación
+## Main Features
+### User Management and Authentication
 
-Inicio de sesión (login) con validación de credenciales y roles (ADMIN / ASISTENTE).
+Login with credential and role validation (ADMIN / ASSISTANT).
 
-Decorador aplicado al método createUser() para asignar valores por defecto:
+Decorator applied to the createUser() method to assign default values:
 
-role = "ASISTENTE"
+role = “ASSISTANT”
 
-estado = "ACTIVO"
+status = “ACTIVE”
 
 createdAt = now()
 
-Registro de trazas tipo “llamadas HTTP” en consola y archivo app.log.
+Logging of “HTTP calls” in the console and app.log file.
 
-### Gestión de Libros
+### Book Management
 
-CRUD completo (crear, editar, listar, eliminar).
+Full CRUD (create, edit, list, delete).
 
-Validación de ISBN único antes de registrar.
+Unique ISBN validation before registration.
 
-Filtros por autor y categoría.
+Filters by author and category.
 
-Visualización en tablas formateadas dentro de JOptionPane.
+Display in formatted tables within JOptionPane.
 
-### Gestión de Socios
+### Member Management
 
-Alta, edición y eliminación de socios.
+Member registration, editing, and deletion.
 
-Validación de estado activo antes de realizar préstamos.
+Active status validation before loans are made.
 
-### Gestión de Préstamos
+### Loan Management
 
-Registrar nuevos préstamos con validación de stock disponible.
+Register new loans with available stock validation.
 
-Devolución de libros con cálculo automático de multa y reposición de ejemplares.
+Book returns with automatic calculation of fines and replacement of copies.
 
-Manejo de transacciones JDBC (setAutoCommit(false), commit(), rollback()).
+JDBC transaction handling (setAutoCommit(false), commit(), rollback()).
 
-## Exportaciones y Archivos
+## Exports and Files
 
-Exportación del catálogo completo (libros_export.csv).
+Export the entire catalog (libros_export.csv).
 
-Exportación de préstamos vencidos (prestamos_vencidos.csv).
+Export overdue loans (prestamos_vencidos.csv).
 
-Lectura de parámetros desde config.properties (BD, días de préstamo, multa diaria).
+Read parameters from config.properties (DB, loan days, daily fine).
 
-Registro de actividad en app.log usando java.util.logging.
+Log activity in app.log using java.util.logging.
 
 
 ---
 
 ```text
 📦 src
- ┣ 📂 controllers     → Manejo de la lógica de presentación
- ┣ 📂 services        → Reglas de negocio, transacciones, validaciones
- ┣ 📂 dao             → Persistencia JDBC
- ┣ 📂 models          → Clases de entidad (Book, Loan, User, Member)
- ┣ 📂 views           → Interfaz con JOptionPane
- ┣ 📂 utils           → Helpers (logs, mensajes, validaciones, CSV)
- ┗ 📄 App.java        → Punto de entrada principal
+ ┣ 📂 controllers     → Presentation logic management
+ ┣ 📂 services        → Business rules, transactions, validations
+ ┣ 📂 dao             → JDBC persistence
+ ┣ 📂 models          → Entity classes (Book, Loan, User, Member)
+ ┣ 📂 views           → Interface with JOptionPane
+ ┣ 📂 utils           → Helpers (logs, messages, validations, CSV)
+ ┗ 📄 App.java        → Main entry point
 
 ```
 ---
 
-## Requsitos previos
+## Prerequisites
 
 
-| Requisito | Versión recomendada |
+| Requirement | Recommended version |
 | --------- | ------------------- |
-| Java SE   | 17 o superior       |
+| Java SE   | 17 or higher       |
 | Maven     | 3.8+                |
 | MySQL     | 8.0+                |
 | JUnit     | 5.x                 |
 
-### Configuración del Proyecto
+## Project Configuration
+ Clone the repository
 
+git clone https://github.com/usuario/libronova.git
+cd libronova
 
+### Create the MySQL database
 
+CREATE DATABASE libronova;
+USE libronova;
 
+Then run the sql/schema.sql script included in the project to create the tables (books, users, members, loans).
+
+### Configure the config.properties file
+
+- Located in the project root (/src/main/resources/config.properties):
+
+db.url=jdbc:mysql://localhost:3306/libronova
+db.user=root
+db.password=****
+loanDays=7
+finePerDay=1500
+
+## Use Case Diagram
 
 
 
